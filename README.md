@@ -32,10 +32,10 @@ This is a full-stack Product Management System built with **.NET 8 Web API** (ba
 ### **Backend Setup**
 
 Run database migrations:
-    dotnet ef database update
+    `dotnet ef database update`
 
 ### **Front Setup**
 Install dependencies:
-    npm install
+    Install via `npm installi`
 
   
