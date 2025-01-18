@@ -1,0 +1,10 @@
+﻿@ProductManagement.WebAPI_HostAddress = https://localhost:7035
+
+POST {{ProductManagement.WebAPI_HostAddress}}/products
+Content-Type: application/json
+
+{
+  //ProductCreateDto
+}
+
+###

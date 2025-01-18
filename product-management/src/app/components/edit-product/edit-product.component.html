@@ -1,0 +1,54 @@
+<div class="custom-form"> 
+  <h2 class="text-2xl font-bold mb-4 text-gray-800">Edit Product</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+    <!-- Name Field -->
+    <div class="p-field">
+      <label for="name" class="block text-sm font-medium text-blue-800">Name</label>
+      <input id="name" type="text" pInputText formControlName="name" />
+      <small *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" class="text-red-500">
+        Name is required and must be less than 100 characters.
+      </small>
+    </div>
+
+    <!-- Description Field -->
+    <div class="p-field">
+      <label for="description" class="block text-sm font-medium text-blue-800">Description</label>
+      <input id="description" type="text" pInputText formControlName="description" />
+      <small *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched" class="text-red-500">
+        Description is required and must be less than 500 characters.
+      </small>
+    </div>
+
+    <!-- Price Field -->
+    <div class="p-field">
+      <label for="price" class="block text-sm font-medium text-blue-800">Price</label>
+      <input id="price" type="number" pInputText formControlName="price" />
+      <small *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="text-red-500">
+        Price is required and must be a positive number.
+      </small>
+    </div>
+
+    <!-- Image Field -->
+    <div class="p-field">
+      <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+      <p-fileUpload
+        name="image"
+        (onSelect)="onFileSelect($event)"
+        [multiple]="false"
+        accept="image/*"
+        maxFileSize="1000000"
+        mode="basic"
+        [chooseLabel]="chooseLabelText"
+        >
+        <ng-template #empty>
+          <div>Select a single image to upload.</div>
+        </ng-template>
+      </p-fileUpload>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="p-field">
+      <button pButton type="submit" label="Update Product" class="w-full p-button-primary" [disabled]="productForm.invalid"></button>
+    </div>
+  </form>
+</div>
